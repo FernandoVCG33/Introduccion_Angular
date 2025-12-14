@@ -7,11 +7,10 @@ import {ChangeDetectionStrategy, Component, provideZoneChangeDetection, signal} 
 export class CounterPageComponents {
   counter=10;
   counterSingal=signal(10);
-
   constructor() {
     setInterval(()=>{
-        console.table(`tick`);
-        this.incrementarByOne(1);
+      console.log(`ticks`);
+      this.incrementarByOne(1);
     },1000)
   }
 
