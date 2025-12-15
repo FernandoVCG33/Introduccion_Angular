@@ -1,5 +1,6 @@
 import {Component, computed, signal} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
+import {CharactersLisComponent} from '../components/bnha/characters-lis/characters-lis';
 interface Characters {
   id: number;
   name: string;
@@ -7,7 +8,10 @@ interface Characters {
 }
 
 @Component({
-  selector:'bnha-next',
+  selector: 'bnha-next',
+  imports: [
+    CharactersLisComponent
+  ],
   templateUrl: './bnha-next-.html'
 })
 export class BnhaNextComponent {
@@ -23,11 +27,13 @@ export class BnhaNextComponent {
         return;
       }
       const newC:Characters={
-        id: this.characters().length + 1,
+        //id: this.characters().length + 1,
+        id : 1000,
         name : this.name(),
         poder : this.poder(),
       }
-      this.characters.update((list) =>[...list, newC]);
+      //this.characters.update((list) =>[...list, newC]);
+    console.log({newC});
     this.resetFiles()
   }
   resetFiles(){

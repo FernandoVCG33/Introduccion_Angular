@@ -1,0 +1,19 @@
+<h3 >    </h3>
+<ul>
+  @for (personajes of characters(); track personajes.id; let index= $index){
+    @if ( personajes.poder>600){
+      <li>
+        <span> {{index+1}} -  {{personajes.name}}  </span>
+        <strong
+          [class.text-danger]="personajes.poder>1400"
+          [class.text-primary]="personajes.poder<1400"
+        >
+          ({{personajes.poder}}) </strong>
+      </li>
+    } @else {
+      <li><strong>Aqui no hay nada papu!</strong></li>
+    }
+
+  }
+
+</ul>
