@@ -1,0 +1,46 @@
+<h1>Pagina de BNHA</h1>
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <h3>Agregar: {{name()}}  </h3>
+    <input
+      [value]="name()"
+      (change)="name.set(txtName.value)"
+      (input)="name.set(txtName.value)"
+      #txtName
+      type="text"
+      class="form-control"
+      placeholder="nombre"
+    >
+
+    <input
+      [value]="poder()"
+      (input)="poder.set(+txtPoder.value)"
+      #txtPoder
+      type="number"
+      class="form-control mt-2"
+      placeholder="poder"
+    >
+    <button (click)="addCharacter()"   class="mt-2 btn btn-primary">Agregar</button>
+  </div>
+  <div class="col-12 col-sm-6">
+    <h3>listado</h3>
+    <ul>
+      @for (personajes of characters(); track personajes.id; let index= $index){
+        @if ( personajes.poder>600){
+          <li>
+            <span> {{index+1}} -  {{personajes.name}}  </span>
+            <strong
+              [class.text-danger]="personajes.poder>1400"
+              [class.text-primary]="personajes.poder<1400"
+            >
+              ({{personajes.poder}}) </strong>
+          </li>
+        } @else {
+          <li><strong>Aqui no hay nada papu!</strong></li>
+        }
+
+      }
+
+    </ul>
+  </div>
+</section>
