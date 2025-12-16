@@ -1,6 +1,9 @@
-import {Component, computed, signal} from '@angular/core';
-import {RouterLink, RouterLinkActive} from '@angular/router';
+import {Component, inject ,computed, signal} from '@angular/core';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
 import {CharactersLisComponent} from '../components/bnha/characters-lis/characters-lis';
+//import {CharacterAddComponent} from '../components/bnha-character-add/bnha-character-add';
+import {CharacterAddComponent} from '../components/bnha-character-add/bnha-character-add';
+import {BnhaService} from '../../services/bnha.service';
 interface Characters {
   id: number;
   name: string;
@@ -10,35 +13,14 @@ interface Characters {
 @Component({
   selector: 'bnha-next',
   imports: [
-    CharactersLisComponent
+    CharactersLisComponent,
+    CharacterAddComponent,
   ],
   templateUrl: './bnha-next-.html'
 })
 export class BnhaNextComponent {
-  name = signal(' ');
-  poder = signal(0);
-  characters = signal<Characters[]>([
-    {id: 1, name: "Deku", poder: 1500},
-    {id: 2, name: "Uraraka", poder: 1000}
-  ]);
+  public bnhaService= inject(BnhaService);
+  //aqui va lo que esta en  bnha service
 
-  addCharacter() {
-      if(!this.name() || !this.poder() || this.poder()<=0 ) {
-        return;
-      }
-      const newC:Characters={
-        //id: this.characters().length + 1,
-        id : 1000,
-        name : this.name(),
-        poder : this.poder(),
-      }
-      //this.characters.update((list) =>[...list, newC]);
-    console.log({newC});
-    this.resetFiles()
-  }
-  resetFiles(){
-    this.name.set('');
-    this.poder.set(0);
-  }
 }
 

@@ -3,32 +3,14 @@
   <div class="col-12 col-sm-6">
     <!--bnha-character-add-->
     <!--Desde aqui-->
-    <h3>Agregar: {{name()}}  </h3>
-    <input
-      [value]="name()"
-      (change)="name.set(txtName.value)"
-      (input)="name.set(txtName.value)"
-      #txtName
-      type="text"
-      class="form-control"
-      placeholder="nombre"
-    >
-
-    <input
-      [value]="poder()"
-      (input)="poder.set(+txtPoder.value)"
-      #txtPoder
-      type="number"
-      class="form-control mt-2"
-      placeholder="poder"
-    >
-    <button (click)="addCharacter()"   class="mt-2 btn btn-primary">Agregar</button>
+    <bnha-bnha-character-add
+      (newCharacter)="bnhaService.addCharacter($event)"
+      />
     <!--Fin de aca-->
   </div>
   <div class="col-12 col-sm-6">
     <bhna-characters-lis
       listName="Listado de personajes"
-      [characters]="characters()"/>
-
+      [characters]="bnhaService.characters()"/>
   </div>
 </section>

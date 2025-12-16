@@ -5,6 +5,6 @@ import type {Character} from '../../interfaces/character.interface';
   templateUrl: './characters-lis.html',
 })
 export class CharactersLisComponent {
-
     characters=input.required<Character[]>();
+    listName=input.required<String>();
 }

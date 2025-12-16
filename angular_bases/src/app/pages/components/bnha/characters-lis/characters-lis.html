@@ -1,4 +1,4 @@
-<h3 >    </h3>
+<h3 > {{listName()}}  </h3>
 <ul>
   @for (personajes of characters(); track personajes.id; let index= $index){
     @if ( personajes.poder>600){
@@ -13,7 +13,5 @@
     } @else {
       <li><strong>Aqui no hay nada papu!</strong></li>
     }
-
   }
-
 </ul>
