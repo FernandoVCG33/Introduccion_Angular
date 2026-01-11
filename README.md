@@ -11,12 +11,21 @@ El directorio de pages contiene lo siguiente :
   - componente ts    
 - components
   - bnha-character-add
+    - componente html
+    - componente ts   
   - bnha/characters-list
+    - componente html
+    - componente ts   
   - interfaces
+    - componente ts    
   - shared/nabvar
+    - componente html
+    - componente ts   
 - counter
   - componente html
   - componente ts   
 - hero
   - componente html
   - componente ts   
+## services
+El dorectorio de servicios unicamente contiene un archivo ts
